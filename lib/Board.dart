@@ -42,7 +42,15 @@ class _BoardState extends State<Board> {
           Color(0xff893a9f),
           Color(0xff7c2ae8),
         ])),
-        child: Game(size),
+        child: Stack(
+          children: [
+            Positioned(
+              right: 0,
+              top: 0,
+              child: Image.asset("assets/images/LogoWhite.png",width: size.width/3,)),
+            Game(size),
+          ],
+        ),
       ),
     );
   }

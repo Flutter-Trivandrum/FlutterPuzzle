@@ -13,11 +13,13 @@ class Grid extends StatelessWidget {
     var height = size.height;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40)
+          .copyWith(top: 20),
       child: Container(
         height: height / 2,
         width: height / 2,
         child: GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             mainAxisSpacing: 5,
