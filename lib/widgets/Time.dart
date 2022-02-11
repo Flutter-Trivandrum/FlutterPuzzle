@@ -1,23 +1,30 @@
-
 import 'package:flutter/material.dart';
 
-class Time extends StatelessWidget {
+String formatTime(int secs) {
+  var hours = (secs ~/ 3600).toString().padLeft(2, '0');
+  var minutes = ((secs % 3600) ~/ 60).toString().padLeft(2, '0');
+  var seconds = (secs % 60).toString().padLeft(2, '0');
+  return " $hours:$minutes:$seconds ";
+}
 
-  int secondsPassed;
+class Time extends StatelessWidget {
+  final int secondsPassed;
 
   Time(this.secondsPassed);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12.0),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        border: Border.all(color: Colors.white, width: 1),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 11, horizontal: 21),
       child: Text(
-        "Time: ${secondsPassed}",
+        formatTime(secondsPassed),
         style: TextStyle(
-          fontSize: 18,
-          decoration: TextDecoration.none,
-          color: Colors.white,
-        ),
+            color: Colors.white, decoration: TextDecoration.none, fontSize: 18),
       ),
     );
   }
