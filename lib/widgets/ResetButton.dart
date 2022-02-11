@@ -20,14 +20,16 @@ class ResetButton extends StatelessWidget {
                 border: Border.all(color: Colors.white, width: 1),
                 borderRadius: BorderRadius.circular(20)),
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 20,
-              ),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: Row(
                 children: [
-                  Icon(Icons.refresh,color: Colors.white,),
-                  SizedBox(width: 10,),
+                  Icon(
+                    Icons.refresh,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Text(
                     "Reset",
                     style: TextStyle(
