@@ -45,8 +45,8 @@ class _BoardState extends State<Board> {
         child: Stack(
           children: [
             Positioned(
-              right: 0,
-              top: 0,
+              right: 10,
+              bottom: 10,
               child: Image.asset("assets/images/LogoWhite.png",width: size.width/3,)),
             Game(size),
           ],
