@@ -9,8 +9,7 @@ class GridButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     
-      return SizedBox(
+    return SizedBox(
       width: 145,
       height: 44,
       child: AnimatedTextButton(
@@ -18,12 +17,12 @@ class GridButton extends StatelessWidget {
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
           textStyle: TextStyle(
-    fontFamily: 'GoogleSans',
-    color: Color(0xFF000000),
-    fontSize: 16,
-      height: 1.25,
-      fontWeight: FontWeight.w700,
-  ),
+            fontFamily: 'GoogleSans',
+            color: Color(0xFF000000),
+            fontSize: 16,
+            height: 1.25,
+            fontWeight: FontWeight.w700,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
           ),
@@ -31,21 +30,18 @@ class GridButton extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(Color(0xFF000000)),
           foregroundColor: MaterialStateProperty.all(Color(0xFFFFFFFF)),
         ),
-        onPressed:()=> click(),
+        onPressed: () => click(),
         child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
+          text,
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-      ),
     );
-
-   
   }
 }
-
 
 class AnimatedTextButton extends ImplicitlyAnimatedWidget {
   /// {@macro animated_text_button}

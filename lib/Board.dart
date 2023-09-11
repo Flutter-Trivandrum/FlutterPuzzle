@@ -5,7 +5,6 @@ import 'widgets/Menu.dart';
 import 'widgets/MyTitle.dart';
 import 'widgets/Grid.dart';
 
-
 class Board extends StatefulWidget {
   @override
   _BoardState createState() => _BoardState();
@@ -23,7 +22,7 @@ class _BoardState extends State<Board> {
   @override
   void initState() {
     super.initState();
-    numbers.shuffle();
+    // numbers.shuffle();
   }
 
   @override
@@ -39,14 +38,27 @@ class _BoardState extends State<Board> {
       child: Container(
         height: size.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          Color(0xff893a9f),
-          Color(0xff7c2ae8),
-        ])),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xff35008B),
+                  Color(0xff0A1117),
+                ])),
         child: Stack(
           children: [
             Positioned(
                 right: 10,
+                bottom: 10,
+                child: GestureDetector(
+                  onDoubleTap: checkWin,
+                  child: Image.asset(
+                    "assets/images/LogoWhite.png",
+                    width: size.width / 4,
+                  ),
+                )),
+            Positioned(
+                left: 10,
                 bottom: 10,
                 child: GestureDetector(
                   onDoubleTap: checkWin,
@@ -74,7 +86,7 @@ class _BoardState extends State<Board> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "Flutter Puzzle",
+                    "Flutter Conf India 2023",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: size.height * 0.1,
@@ -199,7 +211,7 @@ class _BoardState extends State<Board> {
                       ),
                       SizedBox(
                         width: 220.0,
-                        child: RaisedButton(
+                        child: ElevatedButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
@@ -207,7 +219,8 @@ class _BoardState extends State<Board> {
                             "Close",
                             style: TextStyle(color: Colors.white),
                           ),
-                          color: Colors.blue,
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue),
                         ),
                       )
                     ],
