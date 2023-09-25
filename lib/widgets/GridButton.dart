@@ -28,7 +28,7 @@ class GridButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
           ),
         ).copyWith(
-          backgroundColor: MaterialStateProperty.all(Color(0xFF000000)),
+          backgroundColor: MaterialStateProperty.all(Color(0xFFF9BD0C)),
           foregroundColor: MaterialStateProperty.all(Color(0xFFFFFFFF)),
         ),
         onPressed:()=> click(),

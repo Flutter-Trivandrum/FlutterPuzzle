@@ -1,10 +1,11 @@
 import 'dart:async';
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:puzzle/layout/responsive_layout_builder.dart';
 import 'widgets/Menu.dart';
 import 'widgets/MyTitle.dart';
 import 'widgets/Grid.dart';
-
 
 class Board extends StatefulWidget {
   @override
@@ -38,16 +39,17 @@ class _BoardState extends State<Board> {
     return SafeArea(
       child: Container(
         height: size.height,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          Color(0xff893a9f),
-          Color(0xff7c2ae8),
-        ])),
+        color: Color(0xff8859A1),
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(colors: [
+        //   Color(0xffB8E5FF),
+        //   Color(0xff0CAEE5),
+        // ])),
         child: Stack(
           children: [
             Positioned(
-                right: 10,
-                bottom: 10,
+                right: 30,
+                bottom: 30,
                 child: GestureDetector(
                   onDoubleTap: checkWin,
                   child: Image.asset(
@@ -74,15 +76,23 @@ class _BoardState extends State<Board> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "Flutter Puzzle",
+                    "Venue Hunt",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: size.height * 0.1,
                         color: Colors.white,
                         decoration: TextDecoration.none),
                   ),
+                  Text(
+                    "Task 1",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: size.height * 0.05,
+                        color: Colors.white,
+                        decoration: TextDecoration.none),
+                  ),
                   Image.asset(
-                    "assets/images/Dashatars.png",
+                    "assets/images/Auto.png",
                     width: 400,
                   )
                 ],
@@ -158,12 +168,13 @@ class _BoardState extends State<Board> {
   }
 
   void reset() {
-    setState(() {
-      numbers.shuffle();
-      move = 0;
-      secondsPassed = 0;
-      isActive = false;
-    });
+    checkWin();
+    // setState(() {
+    //   numbers.shuffle();
+    //   move = 0;
+    //   secondsPassed = 0;
+    //   isActive = false;
+    // });
   }
 
   bool isSorted(List list) {
@@ -177,7 +188,9 @@ class _BoardState extends State<Board> {
   }
 
   void checkWin() {
-    if (isSorted(numbers)) {
+    final size = MediaQuery.of(context).size;
+
+    if (true) {
       isActive = false;
       showDialog(
           context: context,
@@ -186,28 +199,55 @@ class _BoardState extends State<Board> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0)), //this right here
               child: Container(
-                height: 200,
+                height: MediaQuery.of(context).size.height / 1.2,
                 child: Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        "You Win!!",
-                        style: TextStyle(fontSize: 20),
+                      Lottie.asset(
+                        'assets/images/animation_lmzd7s38.json',
+                        width: MediaQuery.of(context).size.width / 2,
+                        height: MediaQuery.of(context).size.height / 6,
                       ),
+                      Text(
+                        "!!YOU WIN!!",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: size.height * 0.05,
+                            color: Colors.black,
+                            decoration: TextDecoration.none),
+                      ),
+                      Image.asset(
+                        "assets/images/key.png",
+                        width: MediaQuery.of(context).size.width / 3,
+                      ),
+                      // Text(
+                      //   "!!YOU WIN!!",
+                      //   style: TextStyle(
+                      //       fontWeight: FontWeight.bold,
+                      //       fontSize: size.height * 0.05,
+                      //       color: Colors.black,
+                      //       decoration: TextDecoration.none),
+                      // ),
+                      Spacer(),
                       SizedBox(
                         width: 220.0,
-                        child: RaisedButton(
+                        child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            FlutterClipboard.copy("23.022504FFFFFFFFFFF13E")
+                                .then((value) {
+                              return ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                content: Text('Key Copied'),
+                              ));
+                            });
+                            // Navigator.pop(context);
                           },
                           child: Text(
-                            "Close",
+                            "Copy Your Key",
                             style: TextStyle(color: Colors.white),
                           ),
-                          color: Colors.blue,
                         ),
                       )
                     ],

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MyTitle extends StatelessWidget {
@@ -11,11 +10,15 @@ class MyTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Image.asset("assets/images/learn-expert-dash.png",width: size.width * 0.29,),
+        Image.asset(
+          "assets/images/Auto.png",
+          width: size.width * 0.20,
+        ),
         Container(
           padding: EdgeInsets.all(5.0),
           child: Text(
-            "Flutter\nPuzzle",
+            "Venue Hunt\nTask 1",
+            textAlign: TextAlign.center,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: size.height * 0.050,
@@ -23,8 +26,10 @@ class MyTitle extends StatelessWidget {
                 decoration: TextDecoration.none),
           ),
         ),
-        Image.asset("assets/images/community-hero.png",width: size.width * 0.29,),
-
+        Image.asset(
+          "assets/images/community-hero.png",
+          width: size.width * 0.29,
+        ),
       ],
     );
   }
