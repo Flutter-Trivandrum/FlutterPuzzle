@@ -83,13 +83,16 @@ class _BoardState extends State<Board> {
                         color: Colors.white,
                         decoration: TextDecoration.none),
                   ),
-                  Text(
-                    "Task 1",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: size.height * 0.05,
-                        color: Colors.white,
-                        decoration: TextDecoration.none),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Task 1",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: size.height * 0.05,
+                          color: Colors.white,
+                          decoration: TextDecoration.none),
+                    ),
                   ),
                   Image.asset(
                     "assets/images/Auto.png",
@@ -168,13 +171,13 @@ class _BoardState extends State<Board> {
   }
 
   void reset() {
-    checkWin();
-    // setState(() {
-    //   numbers.shuffle();
-    //   move = 0;
-    //   secondsPassed = 0;
-    //   isActive = false;
-    // });
+    // checkWin();
+    setState(() {
+      numbers.shuffle();
+      move = 0;
+      secondsPassed = 0;
+      isActive = false;
+    });
   }
 
   bool isSorted(List list) {
