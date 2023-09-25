@@ -193,7 +193,7 @@ class _BoardState extends State<Board> {
   void checkWin() {
     final size = MediaQuery.of(context).size;
 
-    if (true) {
+    if (isSorted(numbers)) {
       isActive = false;
       showDialog(
           context: context,
