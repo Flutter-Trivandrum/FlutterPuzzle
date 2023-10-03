@@ -17,7 +17,7 @@ class MyTitle extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(5.0),
           child: Text(
-            "Venue Hunt\nTask 1",
+            "Venue Hunt",
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -28,7 +28,8 @@ class MyTitle extends StatelessWidget {
         ),
         Image.asset(
           "assets/images/community-hero.png",
-          width: size.width * 0.29,
+          width: size.width * 0.20,
+          fit: BoxFit.cover,
         ),
       ],
     );
