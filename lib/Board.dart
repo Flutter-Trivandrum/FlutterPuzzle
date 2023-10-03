@@ -29,7 +29,7 @@ class _BoardState extends State<Board> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    numbers.shuffle();
+    // numbers.shuffle();
   }
 
   @override
@@ -248,14 +248,14 @@ class _BoardState extends State<Board> with TickerProviderStateMixin {
                           width: MediaQuery.of(context).size.width / 2,
                           height: MediaQuery.of(context).size.height / 6,
                         ),
-                        // Text(
-                        //   "!!YOU WIN!!",
-                        //   style: TextStyle(
-                        //       fontWeight: FontWeight.bold,
-                        //       fontSize: size.height * 0.05,
-                        //       color: Colors.black,
-                        //       decoration: TextDecoration.none),
-                        // ),
+                        Text(
+                          "!!YOU WIN!!",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: size.height * 0.05,
+                              color: Colors.black,
+                              decoration: TextDecoration.none),
+                        ),
                         Image.asset(
                           "assets/images/key.png",
                           width: MediaQuery.of(context).size.width / 3,
@@ -288,7 +288,7 @@ class _BoardState extends State<Board> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                )],
+                ).animate().fadeIn()],
               ),
             );
           });

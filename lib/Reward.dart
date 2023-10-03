@@ -91,9 +91,23 @@ class Reward extends StatelessWidget {
                       )),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Hold The Key to Copy, You might have a ",
+                        style: TextStyle(color: Colors.white)),
+                        Icon(Icons.flutter_dash_rounded,color: Colors.white),
+                        Text(" waiting for you", style: TextStyle(color: Colors.white))
+                      ]
+                    )
+                        .animate(delay: 4.seconds)
+                        .fadeIn(duration: 2.5.seconds),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
                     child: Text(
-                            "Hold The Key to Copy, You might have a 🕊 waiting for you",
-                            style: TextStyle(color: Colors.white))
+                        "!! keep the key safe somewhere it might be useful later !!",
+                        style: TextStyle(color: Colors.white))
                         .animate(delay: 4.seconds)
                         .fadeIn(duration: 2.5.seconds),
                   ),
@@ -102,7 +116,7 @@ class Reward extends StatelessWidget {
                       await Clipboard.setData(ClipboardData(
                           text: "32332e30363733373339,37322e36303233373633"));
                       launchUrl(Uri.parse(
-                          'https://drive.google.com/file/d/1YeNxMaeFqrh0mfeEWN-ZRXIeVZ-8gsh_/view?usp=sharing'));
+                          'https://drive.google.com/file/d/14lr3hbX6mthca9Lyw8wVyIRruGwrB9Q_/view'));
                     },
                     child: Text("Claim your Reward 🎉"),
                     style: ElevatedButton.styleFrom(
@@ -112,6 +126,7 @@ class Reward extends StatelessWidget {
                             borderRadius: BorderRadius.circular(32.0)),
                         minimumSize: Size(200, 50)),
                   ).animate(delay: 5.seconds).fadeIn(duration: 2.5.seconds),
+
                 ],
               ),
             )
