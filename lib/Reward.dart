@@ -116,7 +116,7 @@ class Reward extends StatelessWidget {
                       await Clipboard.setData(ClipboardData(
                           text: "32332e30363733373339,37322e36303233373633"));
                       launchUrl(Uri.parse(
-                          'https://drive.google.com/file/d/14lr3hbX6mthca9Lyw8wVyIRruGwrB9Q_/view'));
+                          'https://drive.google.com/file/d/1hmAsroYR4Vk7A1i_9T7FC1BTjQlaGGax/view'));
                     },
                     child: Text("Claim your Reward 🎉"),
                     style: ElevatedButton.styleFrom(

@@ -18,7 +18,7 @@ class Board extends StatefulWidget {
 }
 
 class _BoardState extends State<Board> with TickerProviderStateMixin {
-  var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
   int move = 0;
 
   static const duration = const Duration(seconds: 1);
@@ -29,7 +29,7 @@ class _BoardState extends State<Board> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    // numbers.shuffle();
+    numbers.shuffle();
   }
 
   @override
@@ -58,17 +58,34 @@ class _BoardState extends State<Board> with TickerProviderStateMixin {
         // ])),
         child: Stack(
           children: [
-
             Positioned(
                 right: 30,
                 bottom: 30,
                 child: GestureDetector(
-                  onDoubleTap: checkWin,
+                  // onDoubleTap: checkWin,
                   child: Image.asset(
                     "assets/images/LogoWhite.png",
                     width: size.width / 4,
                   ),
                 )),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                  alignment: Alignment.topRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      showDialog(context: context, builder: (context) {
+                        return AlertDialog(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)) , //this right here
+
+                          title: Text("Hint 😉", style: TextStyle(fontWeight: FontWeight.bold),),
+                          content: Image.asset("assets/images/hint.png"),
+                        );
+                      },);
+                    },
+                    child: Icon(Icons.info_outline_rounded, color: Colors.white,size: 30 ),
+                  )),
+            ),
             Game(size),
             Align(
               alignment: Alignment.topLeft,
